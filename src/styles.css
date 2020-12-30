@@ -3,3 +3,13 @@ body {
   background: #deead2;
   font-family: "Quicksand", sans-serif;
 }
+ul {
+  padding: 0px;
+}
+
+li {
+  font-size: 16px;
+  line-height: 1.75;
+  list-style-type: none;
+  margin-left: 10px;
+}
