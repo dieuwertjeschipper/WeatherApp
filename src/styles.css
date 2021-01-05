@@ -13,3 +13,7 @@ li {
   list-style-type: none;
   margin-left: 10px;
 }
+.footer {
+  font-size: small;
+  text-align: center;
+}
