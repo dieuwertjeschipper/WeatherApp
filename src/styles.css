@@ -76,6 +76,16 @@ li {
   width: fit-content;
   height: fit-content;
 }
+.row {
+  margin: 0 auto;
+  padding: 0;
+}
+
+.col-2 {
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0;
+}
 
 .footer {
   font-size: small;
