@@ -52,6 +52,15 @@ li {
   left: -10px;
 }
 
+.degrees .active {
+  color: black;
+}
+
+.degrees .active:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .forecast {
   width: fit-content;
   height: fit-content;
