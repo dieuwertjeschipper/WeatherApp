@@ -3,31 +3,6 @@ body {
   background: #c1d1b0;
   font-family: "Quicksand", sans-serif;
 }
-ul {
-  padding: 0px;
-}
-
-li {
-  font-size: 16px;
-  line-height: 1.75;
-  list-style-type: none;
-  margin-left: 10px;
-}
-
-h1 {
-  font-size: 55px;
-  padding: 0px;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  margin-left: 50px;
-  max-width: 100%;
-  font-weight: bold;
-}
-
-.footer {
-  font-size: small;
-  text-align: center;
-}
 
 .completeApp {
   border: 2px solid rgb(255, 255, 255);
@@ -40,4 +15,57 @@ h1 {
 .search-form {
   margin-left: 50px;
   margin-bottom: 15px;
+}
+
+h1 {
+  font-size: 55px;
+  padding: 0px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-left: 50px;
+  max-width: 100%;
+  font-weight: bold;
+  line-height: 1;
+}
+
+ul {
+  padding: 0px;
+}
+
+li {
+  font-size: 16px;
+  line-height: 1.5;
+  list-style-type: none;
+  margin-left: 10px;
+}
+
+.temperature {
+  font-size: 48px;
+  font-weight: bold;
+  margin-right: 5px;
+  line-height: 1;
+}
+
+.degrees {
+  position: relative;
+  top: -20px;
+  left: -10px;
+}
+
+.forecast {
+  width: fit-content;
+  height: fit-content;
+  border: 2px solid white;
+  border-radius: 3px;
+  font-size: 18px;
+}
+
+.weatherIcon {
+  padding: 0;
+  margin: 0 auto;
+}
+
+.footer {
+  font-size: small;
+  text-align: center;
 }
