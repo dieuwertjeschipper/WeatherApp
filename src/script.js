@@ -67,3 +67,90 @@ function handleSubmit(event) {
   let city = document.querySelector("#city-input").value;
   searchCity(city);
 }
+
+function searchCity(city) {
+  let apiKey = "d9880783c80563d424de115efab499a0";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayWeather);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
+  let forecastInfo = document.querySelector("#forecast");
+  forecastInfo.innerHTML = null;
+  let forecast = null;
+  for (let index = 0; index < 6; index++) {
+    forecast = response.data.list[index];
+    forecastInfo.innerHTML += `
+    <div class="col-2">
+      <h3>
+        ${displayHours(forecast.dt * 1000)}
+      </h3>
+      <img
+        src="http://openweathermap.org/img/wn/${
+          forecast.weather[0].icon
+        }@2x.png"
+      />
+      <div class="weather-forecast-temperature">
+        <strong>
+          ${Math.round(forecast.main.temp_max)}°
+        </strong>
+        ${Math.round(forecast.main.temp_min)}°
+      </div>
+    </div>
+  `;
+  }
+}
+
+function getCurrentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(searchLocation);
+}
+
+function searchLocation(position) {
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+  let units = "metric";
+  let apiKey = "d9880783c80563d424de115efab499a0";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(displayWeather);
+  
+apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function showFahrenheit(event) {
+event.preventDefault();
+let fahrentheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+let temperatureInfo = document.querySelector("#temperature");
+temperatureInfo.innerHTML = Math.round(fahrentheitTemperature);
+celsiusLink.classList.remove("active");
+fahrenheitLink.classList.add("active");
+
+}
+
+function showCelsius(event) {
+event.preventDefault();
+let temperatureInfo = document.querySelector("#temperature");
+temperatureInfo.innerHTML = Math.round(celsiusTemperature);
+celsiusLink.classList.add("active");
+fahrenheitLink.classList.remove("active");
+}
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", showFahrenheit);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", showCelsius);
+
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", handleSubmit);
+
+let currentLocationButton = document.querySelector("#current-location-button");
+currentLocationButton.addEventListener("click", getCurrentLocation);
+
+let celsiusTemperature = null;
+
+searchCity("Amsterdam");
