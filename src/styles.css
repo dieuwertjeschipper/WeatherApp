@@ -1,6 +1,6 @@
 body {
   padding: 20px;
-  background: #deead2;
+  background: #c1d1b0;
   font-family: "Quicksand", sans-serif;
 }
 ul {
@@ -13,7 +13,16 @@ li {
   list-style-type: none;
   margin-left: 10px;
 }
+
 .footer {
   font-size: small;
   text-align: center;
+}
+
+.completeApp {
+  border: 2px solid rgb(255, 255, 255);
+  padding: 15px;
+  margin: 20px auto;
+  max-width: 600px;
+  border-radius: 20px;
 }
