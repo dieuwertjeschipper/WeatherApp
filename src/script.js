@@ -35,3 +35,32 @@ if (minutes < 10) {
 let day = days[date.getDay()];
 return `${day} ${hours}:${minutes}`;
 }
+
+function displayWeather(response) {
+ let temperatureInfo = document.querySelector("#temperature");
+  let cityInfo = document.querySelector("#city");
+let countryInfo = document.querySelector("#country");
+  let descriptionInfo = document.querySelector("#description");
+  let humidityInfo = document.querySelector("#humidity");
+  let windInfo = document.querySelector("#wind");
+  let dateInfo = document.querySelector("#date");
+  let iconInfo = document.querySelector("#icon");
+
+  celsiusTemperature = response.data.main.temp;
+
+  temperatureInfo.innerHTML = Math.round(celsiusTemperature);
+  cityInfo.innerHTML = response.data.name;
+  countryInfo.innerHTML = displayCountry(response.data.sys.country);
+  descriptionInfo.innerHTML = response.data.weather[0].description;
+  humidityInfo.innerHTML = response.data.main.humidity;
+  windInfo.innerHTML = Math.round(response.data.wind.speed);
+  dateInfo.innerHTML = displayDate(response.data.dt * 1000);
+  iconInfo.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
+    
+
+
+}
