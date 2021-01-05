@@ -61,17 +61,20 @@ li {
   cursor: pointer;
 }
 
-.forecast {
-  width: fit-content;
-  height: fit-content;
-  border: 2px solid white;
-  border-radius: 3px;
-  font-size: 18px;
-}
-
 .weatherIcon {
   padding: 0;
   margin: 0 auto;
+}
+
+.forecast {
+  text-align: center;
+  font-size: 18px;
+  background: white;
+  padding: 20px 10px 20px 10px;
+  border: 2px solid white;
+  border-radius: 3px;
+  width: fit-content;
+  height: fit-content;
 }
 
 .footer {
